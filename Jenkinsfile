@@ -1,16 +1,10 @@
 pipeline {
-    agent any
+    
     stages {
       def mvnHome
-       stage('Checkout') { // for display purposes
-          // Get some code from a GitHub repository
-          git 'https://github.com/qmetry/cucumber-maven-example.git'
-          // Get the Maven tool.
-          // ** NOTE: This 'M3' Maven tool must be configured
-          // **       in the global configuration.           
-          mvnHome = tool 'mvn'
-       }
-       stage('Build') {
+      mvnHome = tool 'mvn'      
+         
+      stage('Build') {
           // Run the maven build
           if (isUnix()) {
              sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
