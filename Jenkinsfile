@@ -4,12 +4,7 @@ pipeline {
        stage('build') {
           steps {
              bat 'echo step1'
-             bat 'echo step2'
-             bat '''
-                echo 'Multiline'
-                echo 'Example'
-             '''
-             echo 'not using shell'
+             bat 'mvn test'
           }
        }
     }
