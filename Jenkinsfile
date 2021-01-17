@@ -4,7 +4,6 @@ pipeline {
        stage('build') {
           steps {
              bat 'echo step1'
-             
           }
        }
     }
